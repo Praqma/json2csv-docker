@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+        dockerfile true
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }   
+
+    parameters {
+        stashedFile 'input.json'
+    }
+
+    stages {
+        stage ('Convert') {
+            steps {
+                unstash 'input.json'
+                sh 'json2csv --unwind "orderItems" --flatten-arrays --flatten-objects -i input.json > output.csv'
+                archiveArtifacts artifacts: 'output.csv'
+            }
+        }
+    }   
+}

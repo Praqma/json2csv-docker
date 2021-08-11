@@ -15,3 +15,18 @@ Examples:
 
 - `docker run -v $(pwd):/input json2csv:0.1.0  input/some-data.json > some-data.csv`
 - `docker run -v $(pwd):/input json2csv:0.1.0  --unwind "orderItems" --flatten-arrays --flatten-objects -i input/some-data.json > some-data.csv`
+
+## Local
+
+To install json2csv js package into local directory
+
+    npm install --prefix ./json2csv json2csv
+
+To run the gui wrapper
+
+    python gui.py
+
+Create executable in `dist/json2csv.exe`
+
+    pyinstaller --windowed --onefile gui.py --add-data "./modules/;modules" --name json2csv
+

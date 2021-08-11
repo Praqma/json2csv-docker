@@ -20,7 +20,7 @@ Examples:
 
 To install json2csv js package into local directory
 
-    npm install --prefix ./json2csv json2csv
+    npm install --prefix ./modules json2csv
 
 To run the gui wrapper
 
